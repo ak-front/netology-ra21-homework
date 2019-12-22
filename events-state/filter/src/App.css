@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.portfolio {
+  max-width: 990px;
+  padding: 20px 15px;
+  margin: 0 auto;
+}
+
+.toolbar {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.toolbar__button {
+  padding: 5px 10px;
+  margin: 0 5px 5px 0;
+  border: 1px solid;
+  border-radius: 0;
+  background: #fff;
+  appearance: none;
+  color: #555;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.toolbar__button:hover,
+.toolbar__button--active {
+  border-color: #555;
+  background-color: #555;
+  color: #fff;
+}
+
+.toolbar__button--active {
+  cursor: default;
+}
+
+.project-list {
+  box-sizing: border-box;
+}
+
+.project-list__item {
+  width: 100%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.project-list__item img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 480px) {
+  .project-list {
+    margin-left: -15px;
+  }
+
+  .project-list__item {
+    width: 50%;
+    padding-left: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project-list__item {
+    width: calc(100% / 3);
+  }
+}
