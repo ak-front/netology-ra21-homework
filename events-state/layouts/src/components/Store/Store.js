@@ -1,12 +1,9 @@
 import React, { useCallback, useState } from 'react';
-
-import ShopProduct from './../../models/ShopProduct';
+import PropTypes from 'prop-types';
 
 import CardsView from './../CardsView';
 import IconSwitch from './../IconSwitch';
 import ListView from './../ListView';
-
-import productsJson from './../../data/products';
 
 const VIEW_CARDS = 'VIEW_CARDS';
 const VIEW_LIST = 'VIEW_LIST';
@@ -29,8 +26,7 @@ const getViewIcon = currentView => {
   }
 };
 
-function Store() {
-  const [products] = useState(productsJson.map(product => new ShopProduct(product)));
+function Store({ products }) {
   const [currentView, toggleCurrentView] = useState(VIEW_CARDS);
   const handleViewIconSwitch = useCallback(
     () => {
@@ -62,5 +58,13 @@ function Store() {
     </div>
   );
 }
+
+Store.propTypes = {
+  products: PropTypes.array
+};
+
+Store.defaultProps = {
+  products: []
+};
 
 export default Store;

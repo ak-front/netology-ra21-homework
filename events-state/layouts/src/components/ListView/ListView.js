@@ -20,13 +20,7 @@ function ListView({ items }) {
 }
 
 ListView.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.string,
-    color: PropTypes.string,
-    img: PropTypes.string
-  }))
+  items: PropTypes.array
 };
 
 ListView.defaultProps = {

@@ -20,13 +20,7 @@ function CardsView({ cards }) {
 }
 
 CardsView.propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.string,
-    color: PropTypes.string,
-    img: PropTypes.string
-  }))
+  cards: PropTypes.array
 };
 
 CardsView.defaultProps = {
