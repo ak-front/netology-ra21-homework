@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -7,12 +7,9 @@ function ToolbarButton({
   value,
   onClick
 }) {
-  const handleClick = useCallback(
-    () => {
-      onClick(value);
-    },
-    [value, onClick],
-  );
+  const handleClick = () => {
+    onClick(value);
+  };
 
   return (
     <button
