@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 
 import DropdownItem from './DropdownItem';
 
@@ -16,7 +16,9 @@ const DROPDOWN_LIST_STYLE = {
 
 function DropdownList() {
   const [activeItem, setActiveItem] = useState('');
-  const handleSelect = useCallback(value => setActiveItem(value), [setActiveItem]);
+  const handleSelect = value => {
+    setActiveItem(value);
+  };
 
   return (
     <ul

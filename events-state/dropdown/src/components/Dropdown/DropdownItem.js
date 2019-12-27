@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const ACTIVE_STYLE = {
@@ -10,13 +10,10 @@ function DropdownItem({
   value,
   onSelect
 }) {
-  const handleClick = useCallback(
-    event => {
-      onSelect(value);
-      event.preventDefault();
-    },
-    [value, onSelect]
-  );
+  const handleClick = event => {
+    onSelect(value);
+    event.preventDefault();
+  };
 
   return (
     <li style={Object.assign({}, isActive && ACTIVE_STYLE)}>

@@ -1,11 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 
 import DropdownList from './DropdownList';
 
 function Dropdown() {
   const [isOpen, toggleOpen] = useState(false);
-  const handleButtonClick = useCallback(() => toggleOpen(prevIsOpen => !prevIsOpen), [toggleOpen]);
+  const handleButtonClick = () => {
+    toggleOpen(prevIsOpen => !prevIsOpen);
+  };
 
   return (
     <div className={cn('dropdown-wrapper', isOpen && 'open')}>
