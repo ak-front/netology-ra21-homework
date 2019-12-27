@@ -7,23 +7,9 @@ import ListView from './../ListView';
 
 const VIEW_CARDS = 'VIEW_CARDS';
 const VIEW_LIST = 'VIEW_LIST';
-const VIEW_ICON_CARDS = 'view_module'
-const VIEW_ICON_LIST = 'view_list';
-
-const getViewIcon = currentView => {
-  switch (currentView) {
-    case VIEW_CARDS: {
-      return VIEW_ICON_CARDS;
-    }
-
-    case VIEW_LIST: {
-      return VIEW_ICON_LIST;
-    }
-
-    default: {
-      return '';
-    }
-  }
+const ICONS_TYPES_MAP = {
+  [VIEW_CARDS]: 'view_module',
+  [VIEW_LIST]: 'view_list'
 };
 
 function Store({ products }) {
@@ -45,7 +31,7 @@ function Store({ products }) {
     <div className="catalog">
       <div className="catalog__header">
         <IconSwitch
-          icon={getViewIcon(currentView)}
+          icon={ICONS_TYPES_MAP[currentView]}
           onSwitch={handleViewIconSwitch}
         />
       </div>
