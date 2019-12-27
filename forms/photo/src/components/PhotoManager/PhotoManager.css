@@ -1,0 +1,121 @@
+.PhotoManager {
+  max-width: 800px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.PhotoManager-selectFile {
+  position: relative;
+  border: 1px solid;
+}
+
+.PhotoManager-selectFile input {
+  width: 100%;
+  height: 120px;
+  opacity: 0;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.PhotoManager-selectFile input:hover ~ .PhotoManager-selectFileText {
+  background-color: #000;
+  color: #fff;
+}
+
+.PhotoManager-selectFileText {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  pointer-events: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.PhotoManager-list {
+  padding-top: 30px;
+}
+
+.PhotoManager-listItem {
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.PhotoManager-item {
+  position: relative;
+  border: 1px solid;
+}
+
+.PhotoManager-item img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.PhotoManager-itemInner {
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.PhotoManager-itemRemove {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  border: 1px solid;
+  border-radius: 50%;
+  background: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+@media screen and (min-width: 414px) {
+  .PhotoManager-list {
+    padding-top: 30px;
+    margin-left: -20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .PhotoManager-listItem {
+    width: 50%;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .PhotoManager-listItem {
+    width: calc(100% / 3);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .PhotoManager-list {
+    padding-top: 40px;
+    margin-left: -70px;
+  }
+
+  .PhotoManager-listItem {
+    width: calc(100% / 3);
+    padding-left: 70px;
+    margin-bottom: 70px;
+  }
+}

@@ -1,0 +1,31 @@
+.ColorConverter {
+  width: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ColorConverter-input {
+  width: 100%;
+  margin-bottom: 3px;
+  padding: 0.75em 1em;
+  border-radius: 0;
+  border: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  appearance: none;
+  color: #000;
+  font: inherit;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.ColorConverter-output {
+  min-height: 18px;
+  padding: 0.75em 1em;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+}
