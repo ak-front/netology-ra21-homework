@@ -15,28 +15,22 @@ function MessageHistory({ list }) {
           {MESSAGE_TYPES.MESSAGE === item.type && (
             <Message
               from={item.from}
-              message={{
-                time: item.time,
-                text: item.text
-              }}
+              text={item.text}
+              time={item.time}
             />
           )}
           {MESSAGE_TYPES.RESPONSE === item.type && (
             <Response
               from={item.from}
-              message={{
-                time: item.time,
-                text: item.text
-              }}
+              text={item.text}
+              time={item.time}
             />
           )}
           {MESSAGE_TYPES.TYPING === item.type && (
             <Typing
               from={item.from}
-              message={{
-                time: item.time,
-                text: '...'
-              }}
+              text={'...'}
+              time={item.time}
             />
           )}
         </React.Fragment>

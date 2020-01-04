@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 function Message({
   from,
-  message
+  text,
+  time
 }) {
   return (
     <li className="clearfix">
@@ -13,10 +14,10 @@ function Message({
           {' '}
           {from.name}
         </span>
-        <span className="message-data-time">10:12</span>
+        <span className="message-data-time">{time}</span>
       </div>
       <div className="message my-message">
-        {message.text}
+        {text}
       </div>
     </li>
   );
@@ -26,10 +27,8 @@ Message.propTypes = {
   from: PropTypes.shape({
     name: PropTypes.string.isRequired
   }),
-  message: PropTypes.shape({
-    text: PropTypes.string,
-    time: PropTypes.string.isRequired
-  })
+  text: PropTypes.string,
+  time: PropTypes.string.isRequired
 };
 
 export default Message;
