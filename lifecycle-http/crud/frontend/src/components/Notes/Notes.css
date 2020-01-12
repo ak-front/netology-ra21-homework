@@ -1,0 +1,106 @@
+.Notes {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.Notes h1 {
+  margin: 0 0 20px;
+}
+
+.Notes-updateButton {
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 2px;
+  background-color: #fff;
+  appearance: none;
+  color: green;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.Notes-list {
+  margin: 20px 0;
+}
+
+.Notes-listItem {
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.Notes-item {
+  padding: 15px;
+  position: relative;
+  border: 1px solid;
+  text-align: center;
+}
+
+.Notes-itemDelete {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  border: 1px solid;
+  border-radius: 50%;
+  background: #ffffff;
+  text-align: center;
+  color: red;
+  font-size: 14px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.Notes-addForm label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.Notes-addForm textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 140px;
+  padding: 15px;
+  border: 1px solid;
+  box-sizing: border-box;
+  appearance: none;
+  font: inherit;
+  vertical-align: top;
+  resize: vertical;
+}
+
+.Notes-addForm button {
+  padding: 10px 20px;
+  border: 1px solid;
+  border-radius: 2px;
+  background-color: #fff;
+  appearance: none;
+  font: inherit;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 540px) {
+  .Notes-list {
+    margin: 30px 0 30px -40px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .Notes-listItem {
+    width: 50%;
+    padding-left: 40px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Notes {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .Notes-listItem {
+    width: 33.3333%;
+  }
+}
