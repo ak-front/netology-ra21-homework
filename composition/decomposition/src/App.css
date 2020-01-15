@@ -16,6 +16,10 @@ body {
   margin-bottom: 30px;
 }
 
+.index-page__banner {
+  margin-bottom: 30px;
+}
+
 .index-page__widgets {
   display: flex;
 }

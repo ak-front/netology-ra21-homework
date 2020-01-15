@@ -4,10 +4,9 @@ import Logo from './components/Logo';
 import NewsTabs from './components/NewsTabs';
 import PromotionWidget from './components/PromotionWidget';
 import Search from './components/Search';
-import ServicesWidget from './components/ServicesWidget';
+import Banner from './components/Banner';
+import ListWidget from './components/ListWidget';
 import Stocks from './components/Stocks';
-import StreamWidget from './components/StreamWidget';
-import TvWidget from './components/TvWidget';
 import Weather from './components/Weather';
 import Widget from './components/Widget';
 
@@ -129,6 +128,12 @@ function App() {
         </div>
       </div>
       <div className="index-page__middle">
+        <div className="index-page__banner">
+          <Banner
+            img="https://via.placeholder.com/728x90.png?text=Banner"
+            link="#"
+          />
+        </div>
         <div className="index-page__widgets">
           <div className="index-page__widgets-col">
             <Widget
@@ -142,7 +147,7 @@ function App() {
                 forecast={['Утром +17', 'днём +20']}
               />
             </Widget>
-            <ServicesWidget
+            <ListWidget
               items={[
                 {
                   id: 1,
@@ -165,7 +170,19 @@ function App() {
               ]}
               link="#"
               title="Посещаемое"
-            />
+            >
+              {items => (
+                <ul>
+                  {items.map(item => (
+                    <li key={item.id}>
+                      <a href={item.link}>
+                        <b>{item.title}</b> - {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </ListWidget>
           </div>
           <div className="index-page__widgets-col">
             <Widget
@@ -174,9 +191,7 @@ function App() {
             >
               <a href="#">Расписания</a>
             </Widget>
-            <TvWidget
-              link="#"
-              title="Телепрограмма"
+            <ListWidget
               items={[
                 {
                   id: 1,
@@ -200,10 +215,26 @@ function App() {
                   channel: 'Первый'
                 }
               ]}
-            />
+              link="#"
+              title="Телепрограмма"
+            >
+              {items => (
+                <ul>
+                  {items.map(item => (
+                    <li key={item.id}>
+                      <a href={item.link}>
+                        <span>{item.time}</span>
+                        <span>{item.name}</span>
+                        <span>{item.channel}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </ListWidget>
           </div>
           <div className="index-page__widgets-col">
-            <StreamWidget
+            <ListWidget
               items={[
                 {
                   id: 1,
@@ -226,7 +257,20 @@ function App() {
               ]}
               link="#"
               title="Эфир"
-            />
+            >
+              {items => (
+                <ul>
+                  {items.map(item => (
+                    <li key={item.id}>
+                      <a href={item.link}>
+                        {item.title}
+                        {item.info}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </ListWidget>
           </div>
         </div>
       </div>

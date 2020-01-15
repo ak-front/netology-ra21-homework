@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -19,9 +19,9 @@ function Weather({
         />
         {temp}
         {forecast.map(f => (
-          <>
+          <Fragment key={f}>
             <span>{f}</span><br />
-          </>
+          </Fragment>
         ))}
       </a>
     </div>
