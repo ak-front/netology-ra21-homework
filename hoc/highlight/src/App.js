@@ -9,32 +9,32 @@ import './App.css';
 
 const list = [
   {
-    type: 'video',
+    type: ITEM_TYPE.VIDEO,
     url: 'https://www.youtube.com/embed/rN6nlNC9WQA?rel=0&amp;controls=0&amp;showinfo=0',
     views: 50
   },
   {
-    type: 'video',
+    type: ITEM_TYPE.VIDEO,
     url: 'https://www.youtube.com/embed/dVkK36KOcqs?rel=0&amp;controls=0&amp;showinfo=0',
     views: 12
   },
   {
-    type: 'article',
+    type: ITEM_TYPE.ARTICLE,
     title: 'Невероятные события в неизвестном поселке...',
     views: 175
   },
   {
-    type: 'article',
+    type: ITEM_TYPE.ARTICLE,
     title: 'Секретные данные были раскрыты!',
     views: 1532
   },
   {
-    type: 'video',
+    type: ITEM_TYPE.VIDEO,
     url: 'https://www.youtube.com/embed/TKmGU77INaM?rel=0&amp;controls=0&amp;showinfo=0',
     views: 4253
   },
   {
-    type: 'article',
+    type: ITEM_TYPE.ARTICLE,
     title: 'Кот Бегемот обладает невероятной...',
     views: 12,
   },
