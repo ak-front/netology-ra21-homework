@@ -10,25 +10,22 @@ const getDisplayName = WrappedComponent => {
 function withHighlight(WrappedComponent) {
   function WithHighlight(props) {
     const { views } = props;
+    const node = <WrappedComponent {...props}/>;
 
     if (views < 100) {
       return (
-        <New>
-          <WrappedComponent {...props}/>
-        </New>
+        <New>{node}</New>
       );
     }
 
     if (views >= 1000) {
       return (
-        <Popular>
-          <WrappedComponent {...props}/>
-        </Popular>
+        <Popular>{node}</Popular>
       );
     }
 
     return (
-      <WrappedComponent {...props} />
+      <>{node}</>
     );
   }
 
