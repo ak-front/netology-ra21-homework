@@ -1,17 +1,15 @@
 import React from 'react';
 
-import './App.css';
+import FetchComponent from './components/FetchComponent';
 
-import DataComponent from './components/DataComponent';
-import ErrorComponent from './components/ErrorComponent';
-import LoadingComponent from './components/LoadingComponent';
+import './App.css';
 
 function App() {
   return (
     <>
-      <DataComponent />
-      <ErrorComponent />
-      <LoadingComponent />
+      <FetchComponent url="http://localhost:7070/data" />
+      <FetchComponent url="http://localhost:7070/error" />
+      <FetchComponent url="http://localhost:7070/loading" />
     </>
   );
 }
