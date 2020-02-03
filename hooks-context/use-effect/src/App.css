@@ -44,10 +44,31 @@ body {
   color: #fff;
 }
 
+.List .List-loader {
+  padding: 50px 15px;
+  background-color: transparent !important;
+  color: #000 !important;
+  text-align: center;
+  cursor: default;
+}
+
+.List-loader svg {
+  vertical-align: middle;
+}
+
 .Details {
   overflow: hidden;
   border-radius: 3px;
   box-shadow: inset 0 0 0 1px #eee;
+}
+
+.Details-loader {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.Details-loader svg {
+  vertical-align: middle;
 }
 
 .Details img {

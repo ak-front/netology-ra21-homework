@@ -1,47 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Nprogress from 'nprogress';
-import { upperCaseFirst } from "upper-case-first";
+import Loader from 'react-loader-spinner';
+import { upperCaseFirst } from 'upper-case-first';
 
 const { REACT_APP_DETAILS_URL } = process.env;
 
 function Details({ info }) {
   const { id } = info;
   const [infoData, setInfoData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
 
-    Nprogress.start();
+    setIsLoading(true);
     fetch(REACT_APP_DETAILS_URL.replace('{id}', id), {signal: signal})
       .then(response => response.json())
       .then(data => {
-        Nprogress.done();
         setInfoData(data);
+        setIsLoading(false);
       })
       .catch(error => error);
 
     return function () {
       abortController.abort();
-      Nprogress.done();
+      setIsLoading(false);
     }
   }, [id]);
 
   return (
     <div className="Details">
-      {infoData.avatar && (
-        <img
-          src={infoData.avatar}
-          alt={infoData.name}
-        />
+      {isLoading ? (
+        <div className="Details-loader">
+          <Loader
+            type="Oval"
+            color="#777"
+            height={30}
+            width={30}
+          />
+        </div>
+      ) : (
+        <>
+          {infoData.avatar && (
+            <img
+              src={infoData.avatar}
+              alt={infoData.name}
+            />
+          )}
+          {infoData.name && (
+            <h5>{infoData.name}</h5>
+          )}
+          {infoData.details && Object.keys(infoData.details).map(key => (
+            <p key={key}>{upperCaseFirst(key)}: {infoData.details[key]}</p>
+          ))}
+        </>
       )}
-      {infoData.name && (
-        <h5>{infoData.name}</h5>
-      )}
-      {infoData.details && Object.keys(infoData.details).map(key => (
-        <p key={key}>{upperCaseFirst(key)}: {infoData.details[key]}</p>
-      ))}
     </div>
   );
 }
