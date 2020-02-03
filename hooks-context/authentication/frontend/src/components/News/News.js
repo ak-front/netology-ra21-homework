@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Card,
   Col,
@@ -7,12 +6,18 @@ import {
   Spinner
 } from 'react-bootstrap';
 
-const { REACT_APP_NEWS_URL } = process.env;
-const NEWS_DEFAULT_STATE = [];
+import AuthContext from './../../contexts/AuthContext';
 
-function News({ token }) {
+const { REACT_APP_NEWS_URL } = process.env;
+
+function News() {
   const [isLoading, setIsLoading] = useState(false);
-  const [news, setNews] = useState(NEWS_DEFAULT_STATE);
+  const [news, setNews] = useState([]);
+  const {
+    isLoggedIn,
+    token,
+    logout
+  } = useContext(AuthContext);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -20,11 +25,11 @@ function News({ token }) {
     const signal = abortController.signal;
 
     const fetchNews = async () => {
-      setIsLoading(true);
-
-      if (token === '') {
+      if (!isLoggedIn) {
         return;
       }
+
+      setIsLoading(true);
 
       try {
         const response = await fetch(REACT_APP_NEWS_URL, {
@@ -36,6 +41,11 @@ function News({ token }) {
         });
 
         setIsLoading(false);
+
+        if (!response.ok && response.status === 401) {
+          logout();
+          return;
+        }
 
         if (!response.ok) {
           throw new Error(response.statusText);
@@ -56,10 +66,10 @@ function News({ token }) {
     fetchNews();
 
     return () => {
-      isSubscribed = false;
       abortController.abort();
+      isSubscribed = false;
     };
-  }, [token]);
+  }, [isLoggedIn]);
 
   return (
     <>
@@ -98,13 +108,5 @@ function News({ token }) {
     </>
   );
 }
-
-News.propTypes = {
-  token: PropTypes.string
-};
-
-News.defaultProps = {
-  token: ''
-};
 
 export default News;
